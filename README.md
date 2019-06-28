@@ -1,1 +1,1 @@
-Testing Git Repo
+Welcome to my Boardgame management app, HollowTable! more info to come. 
