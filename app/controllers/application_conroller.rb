@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        'HollowTable, test'
+        erb :index
     end
 
 end
