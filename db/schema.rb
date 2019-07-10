@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 2019_07_09_042047) do
     t.integer "genre_id"
   end
 
+  create_table "game_types", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "type_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "summary"
