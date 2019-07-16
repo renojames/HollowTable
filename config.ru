@@ -7,5 +7,6 @@ require_relative './config/environment'
 use Rack::MethodOverride
 
 run ApplicationController
+use UsersController
 
 # TO DO: Mount other controllers via 'use'
