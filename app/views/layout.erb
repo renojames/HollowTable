@@ -10,11 +10,14 @@
 
     <h1 id="banner">HollowTable</h1>
 
-    <nav>
-      <h3>Navigation</h3>
-    </nav>
+    <% if Helpers.is_logged_in?(session) %>
+      <nav>
+        <h3>Navigation</h3>
+      </nav>
+    <% end %>
 
     <%= yield %>
-
+    
+    
   </body>
 </html>
