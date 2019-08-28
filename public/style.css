@@ -24,6 +24,12 @@ nav h3 {
 }
 
 #body {
-  margin: 15px;
-  padding-left: 10px;
+  float: left;
+  margin-left: 15px;
 }
+
+#body h2 {
+  margin-top: 10px;
+}
+
+
