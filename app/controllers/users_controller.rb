@@ -54,6 +54,23 @@ class UsersController < ApplicationController
       redirect '/'
     end
   end
+
+  get '/profile' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      erb :"/users/profile"
+    else
+      redirect '/login'
+    end
+  end
+
+  post '/profile' do
+    user = Helpers.current_user(session)
+    user.title = params["title"]
+    user.bio = params["bio"]
+    user.save
+    redirect '/home'
+  end
   
   
   private
