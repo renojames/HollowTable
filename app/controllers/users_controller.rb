@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if entered_username? && entered_email? && entered_password?
       @user = User.create(username: params["username"], email: params["email"], password: params["password"])
       session["user_id"] = @user.id 
-      redirect '/home'
+      redirect '/profile'
     else
       redirect '/signup'
     end
