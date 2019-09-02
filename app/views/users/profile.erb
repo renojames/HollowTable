@@ -4,10 +4,22 @@
 <h3>Update Your Profile:</h3>
 
 <form action="/profile" method="post">
-  <p>Your Nerdy Title: <input type="text" name="title" placeholder="e.g. 'Magelord of Waterdeep'" maxlength="25"></p>
+
+  <% if @user.title && @user.title != "" %>
+    <p>Your Nerdy Title: <input type="text" name="title" value="<%= @user.title %>" maxlength="25"></p>
+  <% else %>
+    <p>Your Nerdy Title: <input type="text" name="title" placeholder="e.g. 'Magelord of Waterdeep'" maxlength="25"></p>
+  <% end %>
+
   <p>Your Bio:</p>
-  <textarea name="bio" placeholder="Tell us about yourself as a gamer!" rows="8" cols="40"></textarea>
-  <br>
-  <br>
+  <% if @user.bio && @user.bio != "" %>
+    <textarea name="bio" rows="8" cols="40"><%= @user.bio %></textarea>
+  <% else %>
+    <textarea name="bio" placeholder="Tell us about yourself as a gamer!" rows="8" cols="40"></textarea>
+  <% end %>  
+    <br>
+    <br>
+
   <input type="submit" value="Save Your Changes">
+
 </form>
