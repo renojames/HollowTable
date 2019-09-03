@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if entered_username? && entered_email? && entered_password?
+    if entered_all_credentials?
       @user = User.create(username: params["username"], email: params["email"], password: params["password"])
       session["user_id"] = @user.id 
       redirect '/profile'
@@ -74,6 +74,10 @@ class UsersController < ApplicationController
   
   
   private
+
+  def entered_all_credentials?
+    entered_email? && entered_password? && entered_username?
+  end
 
   def entered_username?
     if !!params["username"] && params["username"] != ""
