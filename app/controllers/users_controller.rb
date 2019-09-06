@@ -10,9 +10,13 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if entered_all_credentials?
-      @user = User.create(username: params["username"], email: params["email"], password: params["password"])
-      session["user_id"] = @user.id 
-      redirect '/profile'
+      if !User.find_by(username: params["username"]) && !User.find_by(email: params["email"])
+        @user = User.create(username: params["username"], email: params["email"], password: params["password"])
+        session["user_id"] = @user.id 
+        redirect '/profile'
+      else
+        redirect '/signup'
+      end
     else
       redirect '/signup'
     end
