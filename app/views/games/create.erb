@@ -1,0 +1,19 @@
+
+
+<h2>Create a New Game</h2>
+
+<p>NOTE: Please carefully review the list of existing games before creating a new one!</p>
+
+<p style="font-weight: bold;">Enter the new game info:</p>
+
+<form action="/games/new" method="post">
+
+<p>Game Title: <input type="text" name="name" placeholder="The full title of the game"></p>
+<p>Game Summary: <input style="width: 300px;" type="text" name="summary" placeholder="A short summary of the game's themes"></p>
+<p>Max Number of Players: <input type="number" name="max_players" placeholder="e.g. '6'"></p>
+<p>Play Time: <input type="text" name="play_time" placeholder="e.g. '30-90 minutes'"></p>
+<p>Year Published: <input type="text" name="year_published" placeholder="e.g. '2001'"></p>
+
+<input type="submit" value="Save New Game">
+
+</form>

@@ -11,4 +11,12 @@ class GamesController < ApplicationController
     end
   end
 
+  get '/games/new' do
+    if Helpers.is_logged_in?(session)
+      erb :"/games/create"
+    else
+      redirect '/'
+    end
+  end
+
 end
