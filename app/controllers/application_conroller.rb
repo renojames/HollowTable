@@ -11,10 +11,8 @@ class ApplicationController < Sinatra::Base
         if !Helpers.is_logged_in?(session)
             erb :index
         else
-            erb :"/users/home"
+            redirect '/home'
         end
     end
-
-
 
 end
