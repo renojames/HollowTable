@@ -7,3 +7,19 @@
 <p style="font-weight: bold;">Bio:</p>
 
 <p> <%= @user.bio %> </p>
+
+<br>
+
+<h3><%= @user.username%>'s Games:</h3>
+
+<% @user.games.each do |g| %>
+
+  <h4><%= g.name %></h4>
+
+  <p><%= g.summary %></p>
+
+  <p style="font-weight: bold;"><%= g.publisher.name %>, <%= g.year_published %> </p>
+
+  <p>***********************************************</p>
+
+<% end %>
