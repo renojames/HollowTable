@@ -14,11 +14,19 @@
   <p>Play Time: <input type="text" name="play_time" placeholder="e.g. '30-90 minutes'"></p>
   <p>Name of Publisher: <input type="text" name="publisher"></p>
   <p>Year Published: <input type="text" name="year_published" placeholder="e.g. '2001'"></p>
+
   <h3>Genre(s):</h3>
   <p>Create New Genre: <input type="text" name="new_genre"></p>
   <p>Select Existing Genres:</p>
   <% Genre.all.each do |genre| %>
     <p><input type="checkbox" name="genre.id"> <%= genre.name %></p> 
+  <% end %>
+
+  <h3>Play Type(s):</h3>
+  <p>Create New Play Type: <input type="text" name="new_type"></p>
+  <p>Select Existing Play Types:</p>
+  <% Type.all.each do |type| %>
+    <p><input type="checkbox" name="type.id"> <%= type.name %> </p>
   <% end %>
 
   <input type="submit" value="Save New Game">
