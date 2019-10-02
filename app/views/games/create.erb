@@ -19,14 +19,14 @@
   <p>Create New Genre: <input type="text" name="new_genre"></p>
   <p>Select Existing Genres:</p>
   <% Genre.all.each do |genre| %>
-    <p><input type="checkbox" name="genre.id"> <%= genre.name %></p> 
+    <p><input type="checkbox" name="genres[]" value="<%= genre.id %>" > <%= genre.name %></p> 
   <% end %>
 
   <h3>Play Type(s):</h3>
   <p>Create New Play Type: <input type="text" name="new_type"></p>
   <p>Select Existing Play Types:</p>
   <% Type.all.each do |type| %>
-    <p><input type="checkbox" name="type.id"> <%= type.name %> </p>
+    <p><input type="checkbox" name="types[]" value="<%= type.id %>"> <%= type.name %> </p>
   <% end %>
 
   <input type="submit" value="Save New Game">
