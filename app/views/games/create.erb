@@ -12,8 +12,14 @@
   <p>Game Summary: <input style="width: 300px;" type="text" name="summary" placeholder="A short summary of the game's themes"></p>
   <p>Max Number of Players: <input type="number" name="max_players" placeholder="e.g. '6'"></p>
   <p>Play Time: <input type="text" name="play_time" placeholder="e.g. '30-90 minutes'"></p>
-  <p>Name of Publisher: <input type="text" name="publisher"></p>
   <p>Year Published: <input type="text" name="year_published" placeholder="e.g. '2001'"></p>
+
+  <h3>Publisher:</h3>
+  <% Publisher.all.each do |publisher| %>
+    <p> <input type="radio" name="publisher_id" value="<%= publisher.id %>"> </p>
+  <% end %>
+  <p>Create New Publisher: <input type="text" name="new_publisher"></p>
+  <p>Note: If an existing publisher is selected, the new publisher will not be created.</p>
 
   <h3>Genre(s):</h3>
   <p>Create New Genre: <input type="text" name="new_genre"></p>

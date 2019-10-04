@@ -22,9 +22,15 @@ class GamesController < ApplicationController
   post '/games' do
     if !Game.find_by(name: params["name"])
       game = Game.create(name: params["name"], summary: params["summary"], play_time: params["play_time"], max_players: params["max_players"], year_published: params["year_published"])
-      if !Publisher.find_by(name: params["publisher"])
-        game.publisher = Publisher.create(name: params["publisher"])
+
+      if !!params["publisher_id"] && params["publisher_id"] != ""
+        game.publisher = Publisher.find(params["publisher_id"])
       end
+
+      if !Publisher.find_by(name: params["new_publisher"])
+        game.publisher = Publisher.create(name: params["new_publisher"])
+      end
+
       if params["new_genre"] && params["new_genre"] != ""
         genre = Genre.create(name: params["new_genre"])
         game.genres << genre
