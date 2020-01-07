@@ -44,8 +44,10 @@ class GamesController < ApplicationController
         type = Type.create(name: params["new_type"])
         game.types << type
       end
-      params["types"].each do |type|
-        game.types << Type.find(type)
+      if !!params["types"]
+        params["types"].each do |type|
+          game.types << Type.find(type)
+        end
       end
       Helpers.current_user(session).games << game
       redirect '/home'

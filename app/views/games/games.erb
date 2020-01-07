@@ -4,5 +4,16 @@
 
 <a id="create_game_link" href="/games/new">Create New Game</a>
 
+<p>---------------------------------------------------------------------</p>
 
-<p>A list of games will go here.</p>
+<% Game.all.each do |g| %>
+
+  <h4><%= g.name %></h4>
+
+  <p><%= g.summary %></p>
+
+  <p style="font-weight: bold;"><%= g.publisher.name %>, <%= g.year_published %> </p>
+
+  <p>***********************************************</p>
+
+<% end %>
