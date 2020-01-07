@@ -35,8 +35,10 @@ class GamesController < ApplicationController
         genre = Genre.create(name: params["new_genre"])
         game.genres << genre
       end
-      params["genres"].each do |genre|
-        game.genres << Genre.find(genre)
+      if !!params["genres"]
+        params["genres"].each do |genre|
+          game.genres << Genre.find(genre)
+        end
       end
       if params["new_type"] && params["new_type"] != ""
         type = Type.create(name: params["new_type"])

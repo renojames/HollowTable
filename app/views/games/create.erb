@@ -16,7 +16,7 @@
 
   <h3>Publisher:</h3>
   <% Publisher.all.each do |publisher| %>
-    <p> <input type="radio" name="publisher_id" value="<%= publisher.id %>"> </p>
+    <p><input type="radio" name="publisher_id" value="<%= publisher.id %>"> <%= publisher.name %> </p>
   <% end %>
   <p>Create New Publisher: <input type="text" name="new_publisher"></p>
   <p>Note: If an existing publisher is selected, the new publisher will not be created.</p>
@@ -28,9 +28,9 @@
     <p><input type="checkbox" name="genres[]" value="<%= genre.id %>" > <%= genre.name %></p> 
   <% end %>
 
-  <h3>Play Type(s):</h3>
-  <p>Create New Play Type: <input type="text" name="new_type"></p>
-  <p>Select Existing Play Types:</p>
+  <h3>Play Style(s):</h3>
+  <p>Create New Play Style: <input type="text" name="new_type"></p>
+  <p>Select Existing Play Styles:</p>
   <% Type.all.each do |type| %>
     <p><input type="checkbox" name="types[]" value="<%= type.id %>"> <%= type.name %> </p>
   <% end %>
