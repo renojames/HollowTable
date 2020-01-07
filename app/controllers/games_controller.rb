@@ -27,11 +27,11 @@ class GamesController < ApplicationController
         game.publisher = Publisher.find(params["publisher_id"])
       end
 
-      if !Publisher.find_by(name: params["new_publisher"])
+      if !Publisher.find_by(name: params["new_publisher"]) && params["new_publisher"].strip! != ""
         game.publisher = Publisher.create(name: params["new_publisher"])
       end
 
-      if params["new_genre"] && params["new_genre"] != ""
+      if params["new_genre"] && params["new_genre"].strip! != ""
         genre = Genre.create(name: params["new_genre"])
         game.genres << genre
       end
@@ -40,7 +40,7 @@ class GamesController < ApplicationController
           game.genres << Genre.find(genre)
         end
       end
-      if params["new_type"] && params["new_type"] != ""
+      if params["new_type"] && params["new_type"].strip! != ""
         type = Type.create(name: params["new_type"])
         game.types << type
       end
