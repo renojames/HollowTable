@@ -8,7 +8,7 @@
 
 <% Game.all.each do |g| %>
 
-  <h4><%= g.name %></h4>
+  <a href="/games/<%= g.id %>"><h4><%= g.name %></h4></a>
 
   <p><%= g.summary %></p>
 
