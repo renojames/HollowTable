@@ -19,6 +19,11 @@ class GamesController < ApplicationController
     end
   end
 
+  get '/games/:id' do
+    @game = Game.find(params[:id])
+    erb :"/games/show"
+  end
+
   post '/games' do
     if !Game.find_by(name: params["name"])
       game = Game.create(name: params["name"], summary: params["summary"], play_time: params["play_time"], max_players: params["max_players"], year_published: params["year_published"])

@@ -1,0 +1,27 @@
+
+
+<h2> <%= @game.name %> </h2>
+
+<h3> <%= @game.publisher.name %>, <%= @game.year_published %> </h3>
+
+<p> <%=@game.summary %> </p>
+
+<p>Number of Players: <%= @game.max_players %> </p>
+
+<p>Play Time: <%= @game.play_time %> </p>
+
+<h3>Gameplay Genres(s):</h3>
+
+<ul>
+  <% @game.genres.each do |g| %>
+    <li><%= g.name %></li>
+  <% end %>
+</ul>
+
+<h3>Gameplay Type(s):</h3>
+
+<ul>
+  <% @game.types.each do |t| %>
+    <li><%= t.name %></li>
+  <% end %>
+</ul>
