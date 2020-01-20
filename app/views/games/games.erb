@@ -6,7 +6,7 @@
 
 <p>---------------------------------------------------------------------</p>
 
-<% Game.all.each do |g| %>
+<% Game.order(:name).all.each do |g| %>
 
   <a href="/games/<%= g.id %>"><h4><%= g.name %></h4></a>
 
