@@ -64,4 +64,10 @@ class GamesController < ApplicationController
     end
   end
 
+  delete '/game/:id' do
+    @game = Game.find(params[:id])
+    @game.delete
+    redirect to '/games'
+  end
+
 end
