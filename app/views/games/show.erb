@@ -30,3 +30,12 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Game">
 </form>
+
+<br>
+
+<% if Helpers.current_user(session).games.include?(@game) %>
+  <form action="/game/<%= @game.id %>" method="post"> 
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="submit" value="Edit Game">
+  </form>
+<% end %>
