@@ -36,8 +36,7 @@
 <br>
 
 <% if Helpers.current_user(session).games.include?(@game) %>
-  <form action="/game/<%= @game.id %>" method="post"> 
-    <input id="hidden" type="hidden" name="_method" value="patch">
+  <form action="/game/<%= @game.id %>/edit" method="get">
     <input type="submit" value="Edit Game">
   </form>
 <% end %>

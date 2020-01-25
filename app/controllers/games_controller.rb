@@ -64,6 +64,11 @@ class GamesController < ApplicationController
     end
   end
 
+  get '/game/:id/edit' do
+    @game = Game.find(params[:id])
+    erb :"/games/edit"
+  end
+
   delete '/game/:id' do
     @game = Game.find(params[:id])
     if Helpers.current_user(session).games.include?(@game)
@@ -75,7 +80,5 @@ class GamesController < ApplicationController
       redirect to '/games'
     end
   end
-
-TESTEST
 
 end
