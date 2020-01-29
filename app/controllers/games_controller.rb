@@ -75,7 +75,7 @@ class GamesController < ApplicationController
     @game.genres.clear
     @game.types.clear
 
-    @game.update(name: params["name"], summary: params["summary"], play_time: params["play_time"], max_players: params["max_players"], year_published: params["year_published"])
+    @game.update(summary: params["summary"], play_time: params["play_time"], max_players: params["max_players"], year_published: params["year_published"])
 
     if !!params["publisher_id"] && params["publisher_id"] != ""
       @game.publisher = Publisher.find(params["publisher_id"])
