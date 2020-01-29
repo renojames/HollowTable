@@ -116,4 +116,12 @@ class GamesController < ApplicationController
     end
   end
 
+  post "/games/:id/add_comment" do
+    @game = Game.find(params[:id])
+    new_comment = Comment.create(content: params["content"])
+    @game.comments << new_comment
+    Helpers.current_user(session).comments << new_comment
+    redirect to "/games/#{@game.id}"
+  end
+
 end
