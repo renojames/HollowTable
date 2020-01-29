@@ -69,4 +69,11 @@
   <p><%= comment.user.username %> said:</p>
   <p>"<%= comment.content %>"</p>
   <br>
+  <% if Helpers.current_user(session).comments.include?(comment) %>
+    <form action="/comments/<%= comment.id %>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="hidden" name="game_id" value="<% @game.id %>">
+      <input type="submit" value="Delete Comment">
+    </form>
+  <% end %>
 <% end %>

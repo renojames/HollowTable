@@ -108,11 +108,11 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     if Helpers.current_user(session).games.include?(@game)
       Helpers.current_user(session).games.delete(@game)
-      redirect to '/games'
+      redirect to "/games/#{@game.id}"
     end
     if !Helpers.current_user(session).games.include?(@game)
       Helpers.current_user(session).games << @game
-      redirect to '/games'
+      redirect to "/games/#{@game.id}"
     end
   end
 
@@ -121,6 +121,13 @@ class GamesController < ApplicationController
     new_comment = Comment.create(content: params["content"])
     @game.comments << new_comment
     Helpers.current_user(session).comments << new_comment
+    redirect to "/games/#{@game.id}"
+  end
+
+  delete "/comments/:id" do
+    comment = Comment.find(params[:id])
+    @game = comment.game
+    comment.delete
     redirect to "/games/#{@game.id}"
   end
 
