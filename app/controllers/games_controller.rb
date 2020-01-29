@@ -108,7 +108,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     if Helpers.current_user(session).games.include?(@game)
       Helpers.current_user(session).games.delete(@game)
-      redirect to "/games/#{@game.id}"
+      redirect to "/games"
     end
     if !Helpers.current_user(session).games.include?(@game)
       Helpers.current_user(session).games << @game

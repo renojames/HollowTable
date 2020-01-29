@@ -33,8 +33,10 @@ nav h3 {
   margin-top: 10px;
 }
 
-ul {
-  margin-left: 20px;
+.gametitle {
+  font-style: italic;
 }
+
+
 
 

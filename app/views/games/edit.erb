@@ -1,19 +1,19 @@
 
 
-<h2>Edit <%= @game.name %></h2>
+<h2>Edit <i><%= @game.name %></i></h2> 
 
 <p>NOTE: Please take care to review game details for accuracy before editing!</p>
 
-<p style="font-weight: bold;">Enter changes to <%= @game.name %> below:</p>
+<p style="font-weight: bold;">Enter changes to <i><%= @game.name %></i> below:</p>
 
 <form action="/games/<%= @game.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <p>Game Title: <input type="text" name="name" placeholder="The full title of the game" value="<%= @game.name %>" ></p>
-  <p>Game Summary: <input style="width: 300px;" type="text" name="summary" placeholder="A short summary of the game's themes" value="<%= @game.summary %>"></p>
+  <p>Game Summary:</p> 
+  <textarea name="summary" placeholder="A short summary of the game's themes" rows="8" cols="40"><%= @game.summary %></textarea>
   <p>Max Number of Players: <input type="number" name="max_players" placeholder="e.g. '6'" value="<%= @game.max_players %>"></p>
   <p>Play Time: <input type="text" name="play_time" placeholder="e.g. '30-90 minutes'" value="<%= @game.play_time %>"></p>
-  <p>Year Published: <input type="text" name="year_published" placeholder="e.g. '2001'" value="<%= @game.year_published %>"></p>
+  <p>Year Published: <input type="number" name="year_published" placeholder="e.g. '2001'" value="<%= @game.year_published %>"></p>
 
   <h3>Publisher:</h3>
   <% Publisher.all.each do |p| %>

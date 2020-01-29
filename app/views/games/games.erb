@@ -8,11 +8,25 @@
 
 <% Game.order(:name).all.each do |g| %>
 
-  <a href="/games/<%= g.id %>"><h4><%= g.name %></h4></a>
+  <a class="gametitle" href="/games/<%= g.id %>"><h4><%= g.name %></h4></a>
 
   <p><%= g.summary %></p>
 
   <p style="font-weight: bold;"><%= g.publisher.name %>, <%= g.year_published %> </p>
+
+  <% if !Helpers.current_user(session).games.include?(g) %>
+  <form action="/game/<%= g.id %>" method="post"> 
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Add to My Games">
+  </form>
+<% end %>
+
+<% if Helpers.current_user(session).games.include?(g) %>
+  <form action="/game/<%= g.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Remove from My Games">
+  </form>
+<% end %>
 
   <p>***********************************************</p>
 
